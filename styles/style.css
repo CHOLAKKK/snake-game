@@ -1,0 +1,145 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "ArcadeClassic", sans-serif !important;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  background-color: #2a2b2d;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.header__title {
+  font-size: 30px;
+}
+
+#app {
+  height: 500px;
+  width: 500px;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(10, 10fr);
+  box-shadow: 0px 0px 30px -11px rgba(66, 68, 90, 1);
+  background-color: #9ed96f;
+  box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 3px;
+  overflow: hidden;
+  position: relative;
+}
+
+.game {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.gameBackground {
+  background-color: #9ed96f;
+}
+
+.snake {
+  background-color: #679cdb;
+  box-shadow: 0px 0px 30px -11px rgba(66, 68, 90, 1);
+}
+.snakeHead {
+  background-color: #3a4553;
+}
+.apple {
+  background: #c74949;
+  box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 50px;
+  transform: scale(0.7);
+  border-radius: 50%;
+}
+
+.score {
+  padding: 0.8rem 0;
+  width: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  background-color: #e8b15f;
+  border-radius: 5px;
+  font-family: "ArcadeClassic", sans-serif;
+  gap: 5px;
+}
+
+.scoreBoard {
+  font-size: 30px;
+}
+
+img {
+  padding: 1rem;
+}
+
+.appWrapper {
+  position: relative;
+}
+
+.endGame {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  visibility: hidden;
+  opacity: 0;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  flex-direction: column;
+  color: white;
+  transition: 0.25s ease;
+}
+
+.endGame h1 {
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  word-spacing: 7px;
+}
+
+#tryAgain {
+  padding: 0.5rem 2rem;
+  background: #828795;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  transition: 0.25s ease;
+  color: white;
+  cursor: pointer;
+}
+
+#tryAgain:hover {
+  background: #5a5b5f;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+}
+.settings__box {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  position: absolute;
+  right: 0;
+}
