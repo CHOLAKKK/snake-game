@@ -93,6 +93,22 @@ img {
   position: relative;
 }
 
+.startGame {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  visibility: visible;
+  opacity: 1;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  flex-direction: column;
+  color: white;
+}
 .endGame {
   position: absolute;
   top: 0;
@@ -116,7 +132,7 @@ img {
   word-spacing: 7px;
 }
 
-#tryAgain {
+button {
   padding: 0.5rem 2rem;
   background: #828795;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -128,18 +144,11 @@ img {
   cursor: pointer;
 }
 
-#tryAgain:hover {
+button:hover {
   background: #5a5b5f;
 }
 
 .footer {
   display: flex;
   align-items: center;
-}
-.settings__box {
-  background-color: transparent;
-  outline: none;
-  border: none;
-  position: absolute;
-  right: 0;
 }
