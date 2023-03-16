@@ -1,10 +1,11 @@
 const app = document.getElementById("app");
+const start = document.querySelector(".startGame");
 const endGame = document.querySelector(".endGame");
 const tryAgain = document.getElementById("tryAgain");
+const startGame = document.getElementById("startGame");
 const scoreBoard = document.getElementById("scoreBoard");
 
-let snakeSpeed = 200;
-
+let snakeSpeed = 150;
 let scoreCounter = 0;
 let gameRunning = false;
 let snakeLength = 1;
@@ -12,11 +13,6 @@ let snakeLength = 1;
 let appleX, appleY;
 
 const snake = [[1, 1]];
-
-const WHERE_IS_APPLE = (japkoX, japkoY) => {
-  console.log(`japko is at x: ${japkoX}, y: ${japkoY}`);
-  console.table(game);
-};
 
 const generateTable = () => {
   const table = [
@@ -55,8 +51,6 @@ const generateNewApple = () => {
   }
 
   game[appleX][appleY] = 2;
-
-  WHERE_IS_APPLE(appleY, appleX);
 };
 
 const drawGame = () => {
@@ -88,7 +82,6 @@ drawGame();
 let snakeDirection = "right";
 
 const moveSnake = (event) => {
-  gameRunning = "true";
   if (gameRunning) {
     if (event.code == "ArrowUp" && snakeDirection != "down") {
       snakeDirection = "up";
@@ -126,7 +119,7 @@ setInterval(() => {
         }
       }
     }
-
+    checkCollision();
     drawGame();
   }
 }, snakeSpeed);
@@ -162,15 +155,19 @@ const checkCollision = () => {
 };
 
 const restartGame = () => {
-  gameRunning = "true";
+  gameRunning = true;
   snake.length = 1;
   snakeLength = 1;
   snake[0] = [1, 1];
   game = generateTable();
   scoreCounter = 0;
-  addScore();
   snakeDirection = "right";
+  addScore();
   drawGame();
+};
+
+const addScore = () => {
+  scoreBoard.innerHTML = `SCORE <span class="scoreBoard">${scoreCounter}</span>`;
 };
 
 const gameEnds = () => {
@@ -179,12 +176,15 @@ const gameEnds = () => {
   gameRunning = false;
 };
 
-const addScore = () => {
-  scoreBoard.innerHTML = `SCORE <span class="scoreBoard">${scoreCounter}</span>`;
-};
+startGame.addEventListener("click", () => {
+  gameRunning = true;
+  start.style.visibility = "hidden";
+  start.style.opacity = 0;
+  gameRunning = true;
+});
 
 tryAgain.addEventListener("click", () => {
-  gameRunning = "false";
+  gameRunning = true;
   endGame.style.visibility = "hidden";
   endGame.style.opacity = 0;
   scoreCounter = 0;
